@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  my-web-app:
+    build: .
+    image: my-web-app:latest
+    container_name: my-web-app
+    ports:
+      - 8080:80
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+
+# Можно использовать volume (примонтировать), чтобы подключить index.html с хостовой системы в контейнер по пути /usr/share/nginx/html/index.html.
+# В этом случае образ пересобирать не нужно, а изменения файла на хосте сразу видны внутри контейнера.
